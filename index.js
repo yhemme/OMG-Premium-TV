@@ -17,6 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.set('trust proxy', true);
 
 // Route principale - supporta sia il vecchio che il nuovo sistema
 app.get('/', async (req, res) => {
