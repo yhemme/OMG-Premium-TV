@@ -162,26 +162,26 @@ function enrichWithEPG(meta, channelId, userConfig) {
     const upcomingPrograms = EPGManager.getUpcomingPrograms(normalizeId(channelId));
 
     if (currentProgram) {
-        meta.description = `IN ONDA ORA:\n${currentProgram.title}`;
+        meta.description = `EN DIRECT:\n${currentProgram.title}`;
 
         if (currentProgram.description) {
             meta.description += `\n${currentProgram.description}`;
         }
 
-        meta.description += `\nOrario: ${currentProgram.start} - ${currentProgram.stop}`;
+        meta.description += `\nHoraire: ${currentProgram.start} - ${currentProgram.stop}`;
 
         if (currentProgram.category) {
-            meta.description += `\nCategoria: ${currentProgram.category}`;
+            meta.description += `\nCategorie: ${currentProgram.category}`;
         }
 
         if (upcomingPrograms && upcomingPrograms.length > 0) {
-            meta.description += '\n\nPROSSIMI PROGRAMMI:';
+            meta.description += '\n\nPROCHAIN PROGRAMS:';
             upcomingPrograms.forEach(program => {
                 meta.description += `\n${program.start} - ${program.title}`;
             });
         }
 
-        meta.releaseInfo = `In onda: ${currentProgram.title}`;
+        meta.releaseInfo = `EN DIRECT: ${currentProgram.title}`;
     }
 
     return meta;
